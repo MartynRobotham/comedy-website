@@ -1,11 +1,90 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<a class="skip-link" href="#main-content">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="site-name" href="#home" aria-label="Lorem ipsum home">Lorem ipsum</a>
+			<nav aria-label="Main navigation">
+				<ul class="nav-list">
+					<li><a href="#about">About</a></li>
+					<li><a href="#events">Events</a></li>
+					<li><a href="#socials">Socials</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main-content" class="container">
+		<section id="home" class="intro" aria-labelledby="page-title">
+			<p class="eyebrow">Lorem ipsum</p>
+			<h1 id="page-title">Lorem ipsum dolor sit amet</h1>
+			<p class="intro-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</section>
+
+		<section id="about" class="content-section" aria-labelledby="about-title">
+			<h2 id="about-title">About</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+			<p>Donec ullamcorper nulla non metus auctor fringilla. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+		</section>
+
+		<section id="events" class="content-section" aria-labelledby="events-title">
+			<h2 id="events-title">Events</h2>
+			<ul class="event-list">
+				<li><article><h3>Lorem ipsum dolor sit amet</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></article></li>
+				<li><article><h3>Consectetur adipiscing elit</h3><p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></article></li>
+				<li><article><h3>Integer posuere erat</h3><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p></article></li>
+			</ul>
+		</section>
+
+		<section id="socials" class="content-section" aria-labelledby="socials-title">
+			<h2 id="socials-title">Socials</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<ul class="social-list">
+				<li>Lorem ipsum</li>
+				<li>Dolor sit amet</li>
+				<li>Consectetur adipiscing</li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container"><p>Lorem ipsum dolor sit amet.</p></div>
+	</footer>
 </Layout>
+
+<style>
+	:global(*) { box-sizing: border-box; }
+	:global(html) { scroll-behavior: smooth; }
+	:global(body) { margin: 0; color: #1a1a1a; background: #fff; font-family: system-ui, sans-serif; line-height: 1.6; }
+	:global(a) { color: #111; text-underline-offset: 0.2em; }
+	:global(a:hover) { text-decoration-thickness: 0.15em; }
+	:global(a:focus-visible) { outline: 3px solid currentColor; outline-offset: 4px; border-radius: 2px; }
+	.container { width: min(100% - 2rem, 62rem); margin-inline: auto; }
+	.skip-link { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 1; padding: 0.65rem 0.9rem; color: #fff; background: #111; transform: translateY(-150%); }
+	.skip-link:focus { transform: translateY(0); }
+	.site-header { border-bottom: 1px solid #767676; }
+	.header-inner { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+	.site-name { font-weight: 700; }
+	.nav-list, .event-list, .social-list { margin: 0; padding: 0; list-style: none; }
+	.nav-list { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+	.intro { padding-block: clamp(3rem, 10vw, 7rem); max-width: 48rem; }
+	.eyebrow { margin: 0 0 0.5rem; font-weight: 700; }
+	h1, h2, h3 { line-height: 1.2; }
+	h1 { max-width: 14ch; margin: 0; font-size: clamp(2.5rem, 8vw, 5rem); }
+	.intro-copy { max-width: 38rem; font-size: 1.2rem; }
+	.content-section { padding-block: 2.5rem; border-top: 1px solid #767676; scroll-margin-top: 1rem; }
+	.content-section h2 { margin-top: 0; font-size: 2rem; }
+	.content-section p { max-width: 42rem; }
+	.event-list { display: grid; gap: 1rem; }
+	.event-list li { padding: 1rem 0; border-bottom: 1px solid #767676; }
+	.event-list h3 { margin: 0 0 0.35rem; }
+	.event-list p { margin: 0; }
+	.social-list { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+	.site-footer { margin-top: 2rem; padding-block: 1.5rem; border-top: 1px solid #767676; }
+	.site-footer p { margin: 0; }
+	@media (prefers-reduced-motion: reduce) { :global(html) { scroll-behavior: auto; } }
+</style>
